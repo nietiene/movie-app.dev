@@ -12,7 +12,17 @@ export default function MovieDetail() {
     useEffect(() => {
         //fetch movie details
         axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
-            params: { api_key: ""}
-        })
-    })
+            params: { api_key: "37b186e022267bd499bb77313a4cd229"}
+        }).then(res => setMovie(res.data))
+        .catch(() => navigate("/"))
+
+    axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {
+        params: { api_key: "37b186e022267bd499bb77313a4cd229" }
+    }).then(res => {
+        const trailer = res.data.results.find(v => v.site === "YouTube" && v.type === "Trailer");
+        if (trailer) setVideoKey(trailer.key);
+    }) 
+}, [id, navigate])
+
 }
+

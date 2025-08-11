@@ -24,7 +24,6 @@ function App() {
             <div>
               <h3>{movie.title}</h3>
               <p>Release: {movie.release_date}</p>
-              <p>Release: {movie.release_date}</p>
               <p>⭐ {movie.vote_average}</p>
             </div>
           </div>

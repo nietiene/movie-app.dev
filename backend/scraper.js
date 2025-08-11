@@ -30,8 +30,12 @@ export async function scrapeCategory(category = "Indian") {
 }
 
 async function saveMovies(movies) {
-    for (const movie of movies)
-    { url: movie.url },
-    { $setOnInsert: movie },
-    { upsert: true }
+    for (const movie of movies) {
+        try {
+          { url: movie.url },
+          { $setOnInsert: movie },
+          { upsert: true }
+        }
+    }
+
 };

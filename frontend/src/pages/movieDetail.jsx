@@ -8,4 +8,11 @@ export default function MovieDetail() {
 
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
+
+    useEffect(() => {
+        //fetch movie details
+        axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
+            params: { api_key: ""}
+        })
+    })
 }

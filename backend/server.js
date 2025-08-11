@@ -28,7 +28,9 @@ app.get('/movies', async (req, res) => {
 // manual scrape
 app.get("/scrape", async (req, res) => {
     const country = req.query.country || "India";
+    console.log(`Scrape requested for category: ${category}`);  // <--- Add this
     const movies = await scrapeCategory(country);
+    console.log(`Scrape finished, found ${movies.length} movies`);  // <--- And this
     res.json({ message: `Scraped ${movies.length} movies in ${category}`});
 });
 

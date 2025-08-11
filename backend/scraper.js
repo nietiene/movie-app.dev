@@ -5,6 +5,7 @@ import Movie from "./models/movie.js"
 const BASE_URL = "https://agasobanuyelive.com";
 
 export async function scrapeCategory(country = "India") {
+    console.log(`Starting scrape for category: ${country}`);
     const url = `${BASE_URL}/movies?country=${country}`;
     const { data } = await axios.get(url);
     const $ = cheerio.load(data)
@@ -25,6 +26,8 @@ export async function scrapeCategory(country = "India") {
         }
     });
 
+     console.log(`Scrape done for category: ${country}, found movies: ${movies.length}`);
+
     await saveMovies(movies);
     return movies;
 
@@ -33,6 +36,7 @@ export async function scrapeCategory(country = "India") {
 async function saveMovies(movies) {
     for (const movie of movies) {
         try {
+            console.log(`Saving movie: ${movie.title}`);
             await Movie.updateOne(
                { url: movie.url },
                { $setOnInsert: movie },

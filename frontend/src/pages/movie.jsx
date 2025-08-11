@@ -37,7 +37,20 @@ const handleSearchChange = e => {
             <select 
               value={category}
               onChange={e => setCategory(e.target.value)}
-              className="border rounded px-3 py-2 max-w-xs"></select>
+              className="border rounded px-3 py-2 max-w-xs"
+            >
+                {
+                    categories.map(cat => (
+                        <option key={cat} value={cat}>{cat || "All Categorie"}</option>
+                    ))
+                }
+            </select>
+
+            <input type="search"
+               value={search}
+               onChange={handleSearchChange}
+               placeholder="Search movies..."
+               className="border rounded px-3 py-2 w-1/2 max-w-md"/>
         </div>
       <h1 className="text-4xl font-bold mb-8 text-center">Popular Movies</h1>
 

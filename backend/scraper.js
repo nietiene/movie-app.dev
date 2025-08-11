@@ -18,7 +18,7 @@ export async function scrapeCategory(country = "India") {
         if (title && link) {
             movies.push({
                 title,
-                category,
+                category: country,
                 url: link,
                 image
             });

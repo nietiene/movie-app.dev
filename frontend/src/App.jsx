@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, from "react"
 import axios from "axios"
+import 
 function App() {
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-      axios.get("http://localhost:5000/api/movies/popular")
-      .then(res => setMovies(res.data.results))
-      .catch(err => console.error(err));
-    }, [])
 
   return (
 

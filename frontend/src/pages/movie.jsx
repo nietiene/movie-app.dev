@@ -2,6 +2,14 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 const  Movie = () => {
+const [movies, setMovies] = useState([]);
+
+ useEffect(() => {
+      axios.get("http://localhost:5000/api/movies/popular")
+      .then(res => setMovies(res.data.results))
+      .catch(err => console.error(err));
+}, [])
+
     return (
         
     <div className="max-w-7xl mx-auto p-6">
@@ -27,3 +35,5 @@ const  Movie = () => {
 
 )
 }
+
+export default Movie

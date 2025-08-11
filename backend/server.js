@@ -10,3 +10,16 @@ app.use(cors())
 const TMDB_API_KEY = "37b186e022267bd499bb77313a4cd229";
 
 // Fetch all popular movies from TMDB and forward to frontend
+
+app.get('/api/movies/popular', async (req, res) => {
+    try {
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/popular`, {
+            params: {
+                api_key: TMDB_API_KEY,
+                language: "en-US",
+                page: 1
+            }
+        });
+        res.json(response.data);
+    }
+})

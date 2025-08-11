@@ -20,6 +20,7 @@ app.get('/api/movies', async (req, res) => {
             url = `https://api.themoviedb.org/3/movie/`
             params = { api_key: TMDB_API_KEY, query: search, language: "en-US", page: 1};
         } else if (category) {
+            // genre
             url = "https://api.themoviedb.org/3/discover/movie",
             params = {
                 api_key: TMDB_API_KEY,
@@ -27,8 +28,13 @@ app.get('/api/movies', async (req, res) => {
                 sort_by: "popularity.desc",
                 page: 1,
                 with_genres: mapCategoryToGenreId(category)
-            }
-        }
+            };
+        } else { 
+            url = "https://api.themoviedb.org/3/movie/popular";
+            params = { api_key: TMDB_API_KEY, language: "en-US", page: 1 };
+        };
+
+        const response = await axios.get(url, { params });
 
         res.json(response.data);
     } catch (error) { 

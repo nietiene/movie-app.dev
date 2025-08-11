@@ -26,6 +26,7 @@ export async function scrapeCategory(country = "India") {
     });
 
     await saveMovies(movies);
+    return movies;
 
 }
 

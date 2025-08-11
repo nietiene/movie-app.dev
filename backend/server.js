@@ -3,7 +3,6 @@ import mongoose from "mongoose"
 import cron from "node-cron"
 import Movie from "./models/movie.js"
 import { scrapeCategory } from "./scraper.js"
-import movie from "./models/movie.js"
 
 const app = express()
 const PORT = 5000;
@@ -18,7 +17,7 @@ app.get('/movies', async (req, res) => {
     const { category } = req.query
     let movies;
     if (category) {
-        movie = await movies.find({ category }).sort({ added_at: -1 });
+        movies = await Movie.find({ category }).sort({ added_at: -1 });
     } else {
         movies = await Movie.find().sort({ added_at: -1 });
     }

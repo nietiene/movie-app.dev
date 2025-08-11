@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import cron from "node-cron"
 import Movie from "./models/movie.js"
 import { scrapeCategory } from "./scraper.js"
+import movie from "./models/movie.js"
 
 const app = express()
 const PORT = 5000;
@@ -13,5 +14,16 @@ mongoose.connect("mongodb+srv://mongoself:factorise@etiene.jjrlz2m.mongodb.net/m
 }).then(() => console.log("Mongo DB connected"))
 .catch(err => console.error("MongoDB connection Error", err))
 
+app.get('/movies', async (req, res) => {
+    const { category } = req.query
+    let movies;
+    if (category) {
+        movie = await movies.find({ category }).sort({ added_at: -1 });
+    } else {
+        movies = await Movie.find().sort({ added_at: -1 });
+    }
+
+    res.json(movies)
+})
 
 app.listen(PORT, () => console.log(`Server running http://localhost:${PORT}`))

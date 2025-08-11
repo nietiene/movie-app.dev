@@ -34,6 +34,17 @@ const handleSearchChange = e => {
         
     <div className="max-w-7xl mx-auto p-6">
         <div className="flex items-center justify-between mb-8">
+            <div className="text-2xl font-bold cursor-pointer select-none">
+                MyLogo
+            </div>
+
+            <input type="search"
+               value={search}
+               onChange={handleSearchChange}
+               placeholder="Search movies..."
+               className="border rounded px-3 py-2 w-1/2 max-w-md"
+            />
+
             <select 
               value={category}
               onChange={e => setCategory(e.target.value)}
@@ -45,17 +56,6 @@ const handleSearchChange = e => {
                     ))
                 }
             </select>
-
-            <input type="search"
-               value={search}
-               onChange={handleSearchChange}
-               placeholder="Search movies..."
-               className="border rounded px-3 py-2 w-1/2 max-w-md"
-            />
-
-            <div className="text-2xl font-bold cursor-pointer select-none">
-                MyLogo
-            </div>
         </div>
 
   {/* movies gird */}

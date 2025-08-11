@@ -6,7 +6,7 @@ const BASE_URL = "https://agasobanuyelive.com";
 
 export async function scrapeCategory(country = "India") {
     console.log(`Starting scrape for category: ${country}`);
-    const url = `${BASE_URL}/movies?country=${country}`;
+    const url = `${BASE_URL}/category/country/${country.toLowerCase()}/`;
     const { data } = await axios.get(url);
     const $ = cheerio.load(data)
 

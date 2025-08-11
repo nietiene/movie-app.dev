@@ -19,6 +19,15 @@ app.get('/api/movies', async (req, res) => {
         if (search) {
             url = `https://api.themoviedb.org/3/movie/`
             params = { api_key: TMDB_API_KEY, query: search, language: "en-US", page: 1};
+        } else if (category) {
+            url = "https://api.themoviedb.org/3/discover/movie",
+            params = {
+                api_key: TMDB_API_KEY,
+                language: "en-US",
+                sort_by: "popularity.desc",
+                page: 1,
+                with_genres: mapCategoryToGenreId(category)
+            }
         }
 
         res.json(response.data);

@@ -22,10 +22,10 @@ function App() {
               className="w-full h-[400px] object-cover" 
             />
 
-            <div>
-              <h3>{movie.title}</h3>
-              <p>Release: {movie.release_date}</p>
-              <p>⭐ {movie.vote_average}</p>
+            <div className="p-4">
+              <h3 className="text-lg font-semibold mb-1">{movie.title}</h3>
+              <p className="text-sm text-gray-500 mb-2">Release: {movie.release_date}</p>
+              <p className="text-yellow-500 font-bold">⭐ {movie.vote_average}</p>
             </div>
           </div>
         ))}

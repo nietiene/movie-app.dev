@@ -33,8 +33,13 @@ return (
         <button className="mb-4 text-blue-600 underline"
           onClick={() => navigate(-1)}
         >
-            
+          ← Back to list 
         </button>
+
+        <h1 className="text-3xl font-bold mb-6">{movie.title}</h1>
+        {videoKey ? (
+            <div className="aspect-video mb-6 rounded-lg overfolw-hidden shadow-lg"></div>
+        )}
     </div>
 )
 

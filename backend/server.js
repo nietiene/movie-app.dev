@@ -23,7 +23,14 @@ app.get('/movies', async (req, res) => {
         movies = await Movie.find().sort({ added_at: -1 });
     }
 
-    res.json(movies)
+    res.json(movies);
+});
+
+// manual scrape
+app.get("/scrape", async (req, res) => {
+    const category = req.query.category || "Indian";
+    const movies = await scrapeCategory(category);
+    res.json({ message: `Scraped ${movies.length} movies in ${category}`});
 })
 
 app.listen(PORT, () => console.log(`Server running http://localhost:${PORT}`))

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const  Movie = () => {
 const [movies, setMovies] = useState([]);
+const navigate = useNavigate();
 
  useEffect(() => {
       axios.get("http://localhost:5000/api/movies/popular")
@@ -18,7 +20,8 @@ const [movies, setMovies] = useState([]);
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies.map(movie => (
           <div key={movie.id}
-           className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          onClick={() => navigate(`/movie/${movie.id}`)}
+           className="cursor-poiner bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
             <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}
               className="w-full h-[400px] object-cover" 
             />

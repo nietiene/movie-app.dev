@@ -5,7 +5,7 @@ import Movie from "./models/movie.js"
 const BASE_URL = "https://agasobanuyelive.com";
 
 export async function scrapeCategory(country = "India") {
-    const url = `${BASE_URL}/movies?category=${country}`;
+    const url = `${BASE_URL}/movies?country=${country}`;
     const { data } = await axios.get(url);
     const $ = cheerio.load(data)
 
@@ -18,7 +18,7 @@ export async function scrapeCategory(country = "India") {
         if (title && link) {
             movies.push({
                 title,
-                category: country,
+                country,
                 url: link,
                 image
             });

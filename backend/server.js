@@ -14,10 +14,10 @@ mongoose.connect("mongodb+srv://mongoself:factorise@etiene.jjrlz2m.mongodb.net/m
 .catch(err => console.error("MongoDB connection Error", err))
 
 app.get('/movies', async (req, res) => {
-    const { category } = req.query
+    const { country } = req.query
     let movies;
-    if (category) {
-        movies = await Movie.find({ category }).sort({ added_at: -1 });
+    if (country) {
+        movies = await Movie.find({ country }).sort({ added_at: -1 });
     } else {
         movies = await Movie.find().sort({ added_at: -1 });
     }
@@ -27,8 +27,8 @@ app.get('/movies', async (req, res) => {
 
 // manual scrape
 app.get("/scrape", async (req, res) => {
-    const category = req.query.category || "India";
-    const movies = await scrapeCategory(category);
+    const country = req.query.country || "India";
+    const movies = await scrapeCategory(country);
     res.json({ message: `Scraped ${movies.length} movies in ${category}`});
 });
 

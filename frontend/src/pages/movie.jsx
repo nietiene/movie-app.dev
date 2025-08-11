@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+const categories = ["", "Action", "Comedy", "Horror", "Romance", "Drama", "Indian"];
 
 const  Movie = () => {
 const [movies, setMovies] = useState([]);
 const navigate = useNavigate();
+const [search, setSearch] = useState("");
+const [category, setCategory] = useState(""); 
 
+// fetch movie based on category or search
  useEffect(() => {
-      axios.get("http://localhost:5000/api/movies/popular")
-      .then(res => setMovies(res.data.results))
-      .catch(err => console.error(err));
+ const fetchMovies = async () => {
+    try {
+        const params = {};
+        if (category) params.category = category;
+        if (search) params.search = search;
+
+        const res = axios.get("http://localhost:5000/api/movies", { params })
+            setMovies((await res).data.results)
+    } catch (err) {
+        console.error(err);
+    }
+ }
 }, [])
 
     return (

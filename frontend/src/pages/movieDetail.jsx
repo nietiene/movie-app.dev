@@ -38,8 +38,27 @@ return (
 
         <h1 className="text-3xl font-bold mb-6">{movie.title}</h1>
         {videoKey ? (
-            <div className="aspect-video mb-6 rounded-lg overfolw-hidden shadow-lg"></div>
+            <div className="aspect-video mb-6 rounded-lg overfolw-hidden shadow-lg">
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
+                  title="trailer"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  width="100%"
+                  height="100%"
+                ></iframe>
+            </div>
+        ): (
+            <p>No trailer available.</p>
         )}
+
+        <a href={fullMovieUrl}
+           target="_blank"
+           rel="nooper norefreer"
+           className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-semibold transition"
+        >
+            ▶ Watch Full Video
+        </a>
     </div>
 )
 

@@ -22,12 +22,23 @@ const [category, setCategory] = useState("");
     } catch (err) {
         console.error(err);
     }
- }
-}, [])
+ };
+ fetchMovies();
+}, [categories, search])
+
+const handleSearchChange = e => {
+    setSearch(e.target.value)
+}
 
     return (
         
     <div className="max-w-7xl mx-auto p-6">
+        <div className="flex items-center justify-between mb-8">
+            <select 
+              value={category}
+              onChange={e => setCategory(e.target.value)}
+              className="border rounded px-3 py-2 max-w-xs"></select>
+        </div>
       <h1 className="text-4xl font-bold mb-8 text-center">Popular Movies</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">

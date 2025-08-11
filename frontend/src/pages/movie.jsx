@@ -50,10 +50,15 @@ const handleSearchChange = e => {
                value={search}
                onChange={handleSearchChange}
                placeholder="Search movies..."
-               className="border rounded px-3 py-2 w-1/2 max-w-md"/>
-        </div>
-      <h1 className="text-4xl font-bold mb-8 text-center">Popular Movies</h1>
+               className="border rounded px-3 py-2 w-1/2 max-w-md"
+            />
 
+            <div className="text-2xl font-bold cursor-pointer select-none">
+                MyLogo
+            </div>
+        </div>
+
+  {/* movies gird */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies.map(movie => (
           <div key={movie.id}

@@ -21,5 +21,11 @@ app.get('/api/movies/popular', async (req, res) => {
             }
         });
         res.json(response.data);
+    } catch (error) { 
+        res.status(500).json({ error: "Failed to fetch movies" });
     }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`)
 })

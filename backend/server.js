@@ -42,6 +42,18 @@ app.get('/api/movies', async (req, res) => {
     }
 });
 
+function mapCategoryToGenreId(cat) {
+    const map = {
+        Action: 28,
+        Comedy: 35,
+        Horror: 27,
+        Romance: 10749,
+        Drama: 18,
+        Indian: 99
+    };
+    return map[cat] || "";
+}
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`)
 })

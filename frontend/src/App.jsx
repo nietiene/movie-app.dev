@@ -4,7 +4,7 @@ function App() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-      axios.get("ttp://localhost:5000/api/movies/popular")
+      axios.get("http://localhost:5000/api/movies/popular")
       .then(res => setMovies(res.data.results))
       .catch(err => console.error(err));
     }, [])
@@ -15,7 +15,20 @@ function App() {
       <h1>Popular Movies</h1>
 
       <div>
-        
+        {movies.map(movie => (
+          <div key={movie.id}>
+            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}
+              className="w-full h-[400px] object-cover" 
+            />
+
+            <div>
+              <h3>{movie.title}</h3>
+              <p>Release: {movie.release_date}</p>
+              <p>Release: {movie.release_date}</p>
+              <p>⭐ {movie.vote_average}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
 

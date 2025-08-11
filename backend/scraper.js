@@ -16,7 +16,7 @@ export async function scrapeCategory(category = "Indian") {
         const image = $(el).find("img").attr("src")
 
         if (title && link) {
-            movie.push({
+            movies.push({
                 title,
                 category,
                 url: link,

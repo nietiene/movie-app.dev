@@ -28,7 +28,7 @@ app.get('/movies', async (req, res) => {
 
 // manual scrape
 app.get("/scrape", async (req, res) => {
-    const category = req.query.category || "Indian";
+    const category = req.query.category || "India";
     const movies = await scrapeCategory(category);
     res.json({ message: `Scraped ${movies.length} movies in ${category}`});
 });
@@ -36,9 +36,9 @@ app.get("/scrape", async (req, res) => {
 // auto scrape every 6 hours
 cron.schedule("0 */6 * * *", async () => {
     console.log("Auto scraping movies...");
-    await scrapeCategory("Indian");
-    await scrapeCategory("Action");
-    await scrapeCategory("Romance")
+    await scrapeCategory("India");
+    await scrapeCategory("France");
+    await scrapeCategory("Japan")
 })
 
 app.listen(PORT, () => console.log(`Server running http://localhost:${PORT}`))

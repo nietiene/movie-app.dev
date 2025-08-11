@@ -2,10 +2,10 @@ import axios from "axios"
 import * as cheerio from "cheerio"
 import Movie from "./models/movie.js"
 
-const BASE_URL = "https://oshakurfilms.com";
+const BASE_URL = "https://agasobanuyelive.com";
 
-export async function scrapeCategory(category = "Indian") {
-    const url = `${BASE_URL}/movies?category=${category}`;
+export async function scrapeCategory(country = "India") {
+    const url = `${BASE_URL}/movies?category=${country}`;
     const { data } = await axios.get(url);
     const $ = cheerio.load(data)
 

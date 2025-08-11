@@ -7,3 +7,5 @@ const movieSchema = new mongoose.Schema({
     image: String,
     added_at: { type: Date, default: Date.now }
 });
+
+export default mongoose.model("movie", movieSchema)

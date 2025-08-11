@@ -24,5 +24,8 @@ export default function MovieDetail() {
     }) 
 }, [id, navigate])
 
+if (!movie) return <div className="p-6 text-center">Loading...</div>
+
+const fullMovieUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
 }
 

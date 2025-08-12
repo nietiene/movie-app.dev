@@ -30,9 +30,20 @@ export default function MovieDetail() {
 
 if (!movie) return <div className="p-6 text-center">Loading...</div>
 
-const fullMovieUrl = imdbId
-     ? `https://www.imdb.com/title/${imdbId}/watch/`
-     :`https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
+const streamingOptions = [
+    {
+        name: "JustWatch",
+        url: `https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`
+    },
+    {
+        name: "IMDb",
+        url: imdbId ? `https://www.imdb.com/title/${imdbId}/`: null
+    },
+    {
+        name: "YouTube",
+        url: `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
+    }
+].filter(option => option.url);
 
 return (
     <div className="max-w-4xl mx-auto p-6">
@@ -58,13 +69,8 @@ return (
             <p>No trailer available.</p>
         )}
 
-        <a href={fullMovieUrl}
-           target="_blank"
-           rel="nooper norefreer"
-           className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-semibold transition"
-        >
-            ▶ Watch Full Video
-        </a>
+   <div
+    className="mt-4"></div>
     </div>
 )
 

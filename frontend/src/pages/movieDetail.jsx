@@ -45,17 +45,24 @@ const streamingOptions = [
     {
         name: "JustWatch",
         url: `https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`,
-        color: "bg-purple-600 hover:bg-purple-700"
+        color: "bg-purple-600 hover:bg-purple-700",
+        icon: <SiJustwatch className="mr-2" />
     },
     {
         name: "IMDb",
         url: imdbId ? `https://www.imdb.com/title/${imdbId}/`: null,
-        color: "bg-yellow-500 hover:bg-yellow-600"
+        color: "bg-yellow-500 hover:bg-yellow-600",
+        icon: <FaImdb className="mr-2" />
     },
     {
         name: "YouTube",
         url: `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`,
-        color: "bg-red-600 hover:bg-red-700"
+        color: "bg-red-600 hover:bg-red-700",
+        icon: <FaYoutube className="mr-2"/>
+    },
+    {
+        name: "Search",
+        url: `https://www.google.com/search?q=${encodeURIComponent(movie.title + " watch online")}`,
     }
 ].filter(option => option.url);
 

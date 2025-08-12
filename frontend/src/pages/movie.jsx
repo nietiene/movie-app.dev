@@ -102,7 +102,7 @@ const Movie = () => {
             </div>
 
             <a 
-              href="https://yourportfolio.com/contact" 
+              href="https://niyomugaboetiene.onrender.com/contact" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-colors"

@@ -45,7 +45,7 @@ const Movie = () => {
   const totalPages = Math.ceil(movies.length / moviesPerPage);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 p-4 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header with search and filter */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FaArrowLeft, FaPlay, FaImdb, FaYoutube, FaSearch } from "react-icons/fa";
-import { SiJustwatch } from "react-icons/si/siJustwatch";  // Updated import path
+import { FaArrowLeft, FaPlay, FaImdb, FaYoutube, FaSearch, FaFilm } from "react-icons/fa";
 import { MdLocalMovies } from "react-icons/md";
 
 export default function MovieDetail() {
@@ -48,7 +47,7 @@ export default function MovieDetail() {
             name: "JustWatch",
             url: `https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`,
             color: "bg-purple-600 hover:bg-purple-700",
-            icon: <SiJustwatch className="mr-2" />
+            icon: <FaFilm className="mr-2" />
         },
         {
             name: "IMDb",

@@ -88,22 +88,27 @@ return (
                     ({movie.vote_average?.toFixed(1)}/10)
                 </span>
             </h1>
-        </div>
 
-        {videoKey ? (
-            <div className="aspect-video mb-6 rounded-lg overfolw-hidden shadow-lg">
+          <p className="text-gray-300 mb-6">{movie.overview}</p>
+
+         {videoKey ? (
+          <div className="aspect-video mb-6 rounded-lg overfolw-hidden shadow-lg">
                 <iframe
                   src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
                   title="trailer"
                   allow="autoplay; encrypted-media"
                   allowFullScreen
-                  width="100%"
-                  height="100%"
+                 className="w-full h-full"
                 ></iframe>
             </div>
         ): (
-            <p>No trailer available.</p>
+            <div className="mb-8 p-4 bg-gray-700 rounded-lg text-center">
+                 <p className="text-gray-300">No trailer available.</p>
+            </div>
         )}
+    </div>
+
+
 
    <div
     className="mt-4">

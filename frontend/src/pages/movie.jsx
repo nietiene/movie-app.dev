@@ -14,7 +14,6 @@ const Movie = () => {
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  // fetch movie based on category or search
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
@@ -40,7 +39,6 @@ const Movie = () => {
     setSearch(e.target.value);
   };
 
-  // pagination logic: show only 10 movies at a time
   const moviesPerPage = 10;
   const paginatedMovies = movies.slice(page * moviesPerPage, (page + 1) * moviesPerPage);
   const totalPages = Math.ceil(movies.length / moviesPerPage);
@@ -50,7 +48,31 @@ const Movie = () => {
       {/* Fixed Header */}
       <div className="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Mobile layout - logo left, search right */}
+          <div className="flex items-center justify-between md:hidden">
+            <img 
+              src={logo} 
+              alt="MovieHub Logo" 
+              className="h-8 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            />
+            
+            <div className="relative w-1/2">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FaSearch className="text-gray-400" />
+              </div>
+              <input 
+                type="search"
+                value={search}
+                onChange={handleSearchChange}
+                placeholder="Search..."
+                className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-800 bg-opacity-70 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
+              />
+            </div>
+          </div>
+
+          {/* Desktop layout */}
+          <div className="hidden md:flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center">
               <img 
                 src={logo} 
@@ -76,7 +98,7 @@ const Movie = () => {
             <select 
               value={category}
               onChange={e => setCategory(e.target.value)}
-              className="px-4 py-2 rounded-xl bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
+              className="hidden md:block px-4 py-2 rounded-xl bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
             >
               {categories.map(cat => (
                 <option key={cat} value={cat}>
@@ -86,7 +108,7 @@ const Movie = () => {
             </select>
           </div>
 
-          {/* Category chips - scrollable on mobile */}
+          {/* Category chips - visible on both mobile and desktop */}
           <div className="mt-3 overflow-x-auto pb-2 hide-scrollbar">
             <div className="flex gap-2 w-max">
               {categories.map((cat) => (
@@ -108,14 +130,13 @@ const Movie = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pt-24"> {/* Added pt-24 to account for fixed header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pt-24">
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
         ) : (
           <>
-            {/* Movies grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
               {paginatedMovies.map(movie => (
                 <div 
@@ -152,7 +173,6 @@ const Movie = () => {
               ))}
             </div>
 
-            {/* Pagination controls */}
             {movies.length > moviesPerPage && (
               <div className="flex flex-col sm:flex-row justify-between items-center mt-8 gap-4">
                 <button
@@ -190,7 +210,6 @@ const Movie = () => {
         )}
       </div>
 
-      {/* Custom scrollbar hide for mobile */}
       <style jsx>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;

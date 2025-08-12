@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { FaSearch, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaSearch, FaArrowRight, FaArrowLeft, FaEnvelope } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
 const categories = ["", "Action", "Comedy", "Horror", "Romance", "Drama"];
@@ -48,6 +48,7 @@ const Movie = () => {
       {/* Fixed Header */}
       <div className="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+          {/* Mobile layout - logo left, search center, contact right */}
           <div className="flex items-center justify-between md:hidden">
             <img 
               src={logo} 
@@ -56,7 +57,7 @@ const Movie = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             />
             
-            <div className="relative w-1/2">
+            <div className="relative w-1/2 mx-2">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaSearch className="text-gray-400" />
               </div>
@@ -68,9 +69,17 @@ const Movie = () => {
                 className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-800 bg-opacity-70 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
               />
             </div>
+
+            <a 
+              href="https://niyomugaboetiene.onrender.com/contact" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center p-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+            >
+              <FaEnvelope className="text-sm" />
+            </a>
           </div>
 
-          {/* Desktop layout */}
           <div className="hidden md:flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center">
               <img 
@@ -94,20 +103,17 @@ const Movie = () => {
               />
             </div>
 
-            <select 
-              value={category}
-              onChange={e => setCategory(e.target.value)}
-              className="hidden md:block px-4 py-2 rounded-xl bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
+            <a 
+              href="https://yourportfolio.com/contact" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-colors"
             >
-              {categories.map(cat => (
-                <option key={cat} value={cat}>
-                  {cat || "All Categories"}
-                </option>
-              ))}
-            </select>
+              <FaEnvelope />
+              Contact Me
+            </a>
           </div>
 
-          {/* Category chips - visible on both mobile and desktop */}
           <div className="mt-3 overflow-x-auto pb-2 hide-scrollbar">
             <div className="flex gap-2 w-max">
               {categories.map((cat) => (

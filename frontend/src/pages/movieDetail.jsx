@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios"
 import { FaArrowLeft, FaPlay, FaImdb, FaYoutube, FaSearch} from "react-icons/fa"
+import { SiJustwatch } from "react-icons/si"
+import { MdLocalMovies } from "react-icons/md"
 
 export default function MovieDetail() {
     const { id } = useParams();
@@ -10,6 +12,7 @@ export default function MovieDetail() {
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
     const [imdbId, setImdbId] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         //fetch movie details

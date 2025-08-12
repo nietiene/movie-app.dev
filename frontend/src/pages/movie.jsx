@@ -60,14 +60,14 @@ const Movie = () => {
               value={search}
               onChange={handleSearchChange}
               placeholder="Search movies..."
-              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-800 bg-opacity-70 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-800 bg-opacity-70 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           <select 
             value={category}
             onChange={e => setCategory(e.target.value)}
-            className="px-4 py-2 rounded-lg bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="px-4 py-2 rounded-lg bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             {categories.map(cat => (
               <option key={cat} value={cat}>
@@ -96,7 +96,7 @@ const Movie = () => {
 
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
         ) : (
           <>
@@ -135,7 +135,7 @@ const Movie = () => {
                 <button
                   onClick={() => setPage(prev => Math.max(prev - 1, 0))}
                   disabled={page === 0}
-                  className={`flex items-center px-4 py-2 rounded-lg ${page === 0 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-purple-600 text-white hover:bg-purple-700'}`}
+                  className={`flex items-center px-4 py-2 rounded-lg ${page === 0 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
                 >
                   Previous
                 </button>
@@ -147,7 +147,7 @@ const Movie = () => {
                 <button
                   onClick={() => setPage(prev => (prev + 1) % totalPages)}
                   disabled={page === totalPages - 1}
-                  className={`flex items-center px-4 py-2 rounded-lg ${page === totalPages - 1 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-purple-600 text-white hover:bg-purple-700'}`}
+                  className={`flex items-center px-4 py-2 rounded-lg ${page === totalPages - 1 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
                 >
                   Next <FaArrowRight className="ml-2" />
                 </button>

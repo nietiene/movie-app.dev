@@ -33,12 +33,12 @@ export default function MovieDetail() {
     }, [id, navigate]);
 
     if (loading) return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
     );
 
-    if (!movie) return <div className="p-6 text-center bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800">Loading...</div>;
+    if (!movie) return <div className="p-6 text-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">Loading...</div>;
 
     const streamingOptions = [
         {
@@ -68,7 +68,7 @@ export default function MovieDetail() {
     ].filter(option => option.url);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 p-4 sm:p-6">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 p-4 sm:p-6">
             <div className="max-w-6xl mx-auto">
                 <button 
                     onClick={() => navigate(-1)}
@@ -107,7 +107,7 @@ export default function MovieDetail() {
                             
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {movie.genres?.map(genre => (
-                                    <span key={genre.id} className="px-3 py-1 bg-purple-900 bg-opacity-50 rounded-full text-sm">
+                                    <span key={genre.id} className="px-3 py-1 bg-blue-900 bg-opacity-50 rounded-full text-sm">
                                         {genre.name}
                                     </span>
                                 ))}

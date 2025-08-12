@@ -63,6 +63,12 @@ const streamingOptions = [
     {
         name: "Search",
         url: `https://www.google.com/search?q=${encodeURIComponent(movie.title + " watch online")}`,
+    },
+    {
+        name: "Search",
+        url: `https://www.google.com/search?q=${encodeURIComponent(movie.title + " watch online")}`,
+        icon: <FaSearch className="mr-2" />,
+        color: ""
     }
 ].filter(option => option.url);
 

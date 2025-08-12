@@ -59,7 +59,9 @@ const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
             >
                 {
                     categories.map(cat => (
-                        <option key={cat} value={cat}>{cat || "All Categorie"}</option>
+                        <option key={cat} value={cat}>
+                          {cat || "All Categorie"}
+                        </option>
                     ))
                 }
             </select>
@@ -83,6 +85,19 @@ const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
           </div>
         ))}
       </div>
+
+      {/* next button */}
+      {movies.length > moviePage && (
+        <div className="flex justify-end mt-4">
+          <button
+           onClick={() => setPage(prev => (prev + 1) % Math.ceil(movies.length / moviePage))}
+           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Next ➡
+
+          </button>
+        </div>
+      )}
     </div>
 
 )

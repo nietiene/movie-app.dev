@@ -1,5 +1,4 @@
 import React from "react"
-import axios from "axios"
 import Movie from "./pages/movie"
 import MovieDetail from "./pages/movieDetail"
 import { BrowserRouter, Routes, Route } from "react-router-dom"

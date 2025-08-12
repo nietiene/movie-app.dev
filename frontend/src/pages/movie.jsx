@@ -58,19 +58,29 @@ const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
               onChange={e => setCategory(e.target.value)}
               className="border rounded px-3 py-2 max-w-xs"
             >
-                
-                  <div className="flex gap-4 mb-6 flex-wrap">
-                   {categories.map(cat => (
+                {categories.map(cat => (
                         <option key={cat} value={cat}>
                           {cat || "All Categorie"}
                         </option>
                     ))
                 }
-                  </div>
-
             </select>
         </div>
 
+{/* categories at the top */}
+<div className="flex gap-4 mb-6 flex-wrap">
+  {categories.map((cat) => (
+    <button
+      key={cat}
+      onClick={() => setCategory(cat)}
+      className={`px-4 py-2 rounded ${
+        category === cat ? "bg-blue-500 text-white" : "bg-gray-200"
+      }`}
+    >
+      {cat || "All"}
+    </button>
+  ))}
+</div>
   {/* movies gird */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies.map(movie => (

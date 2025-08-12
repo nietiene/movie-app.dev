@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaSearch, FaArrowRight } from "react-icons/fa";
-
+import logo from "../assets/logo.jpeg"
 const categories = ["", "Action", "Comedy", "Horror", "Romance", "Drama"];
 
 const Movie = () => {
@@ -85,7 +85,7 @@ const Movie = () => {
               onClick={() => setCategory(cat)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 category === cat 
-                  ? "bg-purple-600 text-white shadow-lg" 
+                  ? "bg-blue-600 text-white shadow-lg" 
                   : "bg-gray-800 bg-opacity-50 text-gray-300 hover:bg-gray-700"
               }`}
             >

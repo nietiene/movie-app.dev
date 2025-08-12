@@ -49,8 +49,10 @@ const Movie = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header with search and filter */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
-          <div className="text-3xl font-bold text-white cursor-pointer select-none">
-            <img src={logo} alt="my logo" />
+          <div className="flex items-center">
+            <img src={logo} alt="my logo" 
+            className="h-12 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}/>
           </div>
 
           <div className="relative w-full md:w-1/2">
@@ -67,7 +69,7 @@ const Movie = () => {
           <select 
             value={category}
             onChange={e => setCategory(e.target.value)}
-            className="px-4 py-2 rounded-lg bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-3 rounded-xl bg-gray-800 bg-opacity-70 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem]"
           >
             {categories.map(cat => (
               <option key={cat} value={cat}>

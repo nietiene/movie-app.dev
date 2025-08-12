@@ -83,13 +83,13 @@ const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
 </div>
   {/* movies gird */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {movies.map(movie => (
+        {pagnatatedMovies.map(movie => (
           <div key={movie.id}
-          onClick={() => navigate(`/movie/${movie.id}`)}
-           className="cursor-poiner bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}
-              className="w-full h-[400px] object-cover" 
-            />
+             onClick={() => navigate(`/movie/${movie.id}`)}
+              className="cursor-poiner bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300">
+             <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}
+                className="w-full h-[400px] object-cover" 
+             />
 
             <div className="p-4">
               <h3 className="text-lg font-semibold mb-1">{movie.title}</h3>

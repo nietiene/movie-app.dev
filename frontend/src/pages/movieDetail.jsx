@@ -68,16 +68,16 @@ const streamingOptions = [
         name: "Search",
         url: `https://www.google.com/search?q=${encodeURIComponent(movie.title + " watch online")}`,
         icon: <FaSearch className="mr-2" />,
-        color: ""
+        color: "bg-blue-500 hover:bg-blue-600"
     }
 ].filter(option => option.url);
 
 return (
-    <div className="max-w-4xl mx-auto p-6">
-        <button className="mb-4 text-blue-600 underline"
+    <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-white min-h-screen">
+        <button className="mb-6 flex items-center  text-blue-600 hover:text-blue-300 transition-colors"
           onClick={() => navigate(-1)}
         >
-          ← Back to list 
+         <FaArrowLeft className="mr-2" /> Back to Movies  
         </button>
 
         <h1 className="text-3xl font-bold mb-6">{movie.title}</h1>

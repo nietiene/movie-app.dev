@@ -8,12 +8,14 @@ export default function MovieDetail() {
 
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
+    const [imdbId, setImdbId] = useState(null)
 
     useEffect(() => {
         //fetch movie details
         axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
             params: { api_key: "37b186e022267bd499bb77313a4cd229"}
-        }).then(res => setMovie(res.data))
+        })
+        .then(res => setMovie(res.data))
         .catch(() => navigate("/"))
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {
@@ -21,7 +23,16 @@ export default function MovieDetail() {
     }).then(res => {
         const trailer = res.data.results.find(v => v.site === "YouTube" && v.type === "Trailer");
         if (trailer) setVideoKey(trailer.key);
-    }) 
+    });
+
+    // fetch external IDs(IMDb)
+    axios.get(
+        `https://api.themoviedb.org/3/movie/${id}/external_ids`,
+        {
+            params: { api_key: "37b186e022267bd499bb77313a4cd229"}
+        }
+    )
+
 }, [id, navigate])
 
 if (!movie) return <div className="p-6 text-center">Loading...</div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios"
+import { FaArrowLeft, FaPlay, FaImdb, FaYoutube, FaSearch} from "react-icons/fa"
 
 export default function MovieDetail() {
     const { id } = useParams();

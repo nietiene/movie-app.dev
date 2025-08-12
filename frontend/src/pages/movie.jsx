@@ -8,6 +8,7 @@ const [movies, setMovies] = useState([]);
 const navigate = useNavigate();
 const [search, setSearch] = useState("");
 const [category, setCategory] = useState(""); 
+const [page, setPage] = useState(0) // for pagnation
 
 // fetch movie based on category or search
  useEffect(() => {
@@ -18,7 +19,8 @@ const [category, setCategory] = useState("");
         if (search) params.search = search;
 
         const res = axios.get("http://localhost:5000/api/movies", { params })
-            setMovies((await res).data.results)
+            setMovies(res.data.results)
+            setPage(0)
     } catch (err) {
         console.error(err);
     }
@@ -29,6 +31,11 @@ const [category, setCategory] = useState("");
 const handleSearchChange = e => {
     setSearch(e.target.value)
 }
+
+
+// pagnation logic: show only 8 movies (two row of 4) at a time
+const moviePage = 8;
+const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
 
     return (
         

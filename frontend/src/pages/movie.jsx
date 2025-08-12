@@ -27,7 +27,7 @@ const [page, setPage] = useState(0) // for pagnation
  };
  
  fetchMovies();
-}, [categories, search])
+}, [category, search])
 
 const handleSearchChange = e => {
     setSearch(e.target.value)

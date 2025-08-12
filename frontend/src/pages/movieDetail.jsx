@@ -14,7 +14,10 @@ export default function MovieDetail() {
         //fetch movie details
         axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
             params: { api_key: "37b186e022267bd499bb77313a4cd229"}
-        }).then(res => setMovie(res.data))
+        }).then(res => {
+            setMovie(res.data);
+            setImdbId(res.data.imdbId);
+    })
         .catch(() => navigate("/"))
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {

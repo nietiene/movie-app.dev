@@ -31,7 +31,8 @@ export default function MovieDetail() {
 if (!movie) return <div className="p-6 text-center">Loading...</div>
 
 const fullMovieUrl = imdbId
-? `https://www.imdb.com/title/${imdbId}/watch/` :  `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
+     ? `https://www.imdb.com/title/${imdbId}/watch/`
+     :`https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
 
 return (
     <div className="max-w-4xl mx-auto p-6">

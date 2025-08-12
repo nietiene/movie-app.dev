@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-const categories = ["", "Action", "Comedy", "Horror", "Romance", "Drama", "Indian"];
+const categories = ["", "Action", "Comedy", "Horror", "Romance", "Drama"];
 
 const  Movie = () => {
 const [movies, setMovies] = useState([]);

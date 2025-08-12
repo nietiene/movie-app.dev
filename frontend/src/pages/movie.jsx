@@ -83,7 +83,7 @@ const Movie = () => {
               <img 
                 src={logo} 
                 alt="MovieHub Logo" 
-                className="h-10 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+                className="h-24 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               />
             </div>
@@ -132,7 +132,6 @@ const Movie = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pt-24">
         {loading ? (
           <div className="flex justify-center items-center h-64">

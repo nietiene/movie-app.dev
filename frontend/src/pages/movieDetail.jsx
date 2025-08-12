@@ -80,7 +80,16 @@ return (
          <FaArrowLeft className="mr-2" /> Back to Movies  
         </button>
 
-        <h1 className="text-3xl font-bold mb-6">{movie.title}</h1>
+        <div className="bg-gray-800 rounded-xl shadow-2xl">
+            <h1 className="text-4xl font-bold mb-2 flex items-center">
+                <MdLocalMovies className="mr-3 text-blue-400" />
+                {movie.title}
+                <span className="ml-4 text-yellow-400 text-xl">
+                    ({movie.vote_average?.toFixed(1)}/10)
+                </span>
+            </h1>
+        </div>
+
         {videoKey ? (
             <div className="aspect-video mb-6 rounded-lg overfolw-hidden shadow-lg">
                 <iframe

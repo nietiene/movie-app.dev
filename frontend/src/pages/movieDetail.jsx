@@ -70,7 +70,22 @@ return (
         )}
 
    <div
-    className="mt-4"></div>
+    className="mt-4">
+        <h3 className="flex-xl font-semibold mb-2">Watch full movie on:</h3>
+        <div className="flex gap-3">
+            {streamingOptions.map((option, index) => (
+                <a 
+                 href={option.url}
+                 key={index}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition"
+                >
+                    {option.name}
+                </a>
+            ))}
+        </div>
+    </div>
     </div>
 )
 

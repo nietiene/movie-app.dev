@@ -108,20 +108,22 @@ return (
         )}
     </div>
 
-
-
    <div
     className="mt-4">
-        <h3 className="flex-xl font-semibold mb-2">Watch full movie on:</h3>
-        <div className="flex gap-3">
+        <h3 className="flex-xl font-semibold mb-4 flex items-center">
+            <FaPlay className="mr-2 text-red-400" />
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {streamingOptions.map((option, index) => (
                 <a 
                  href={option.url}
                  key={index}
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium transition"
+                 className= {`${option.color} text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center justify-center hover:scale-105 transform`}
                 >
+                    {option.icon}
                     {option.name}
                 </a>
             ))}

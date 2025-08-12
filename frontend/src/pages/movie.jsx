@@ -35,7 +35,7 @@ const handleSearchChange = e => {
 
 
 // pagnation logic: show only 8 movies (two row of 4) at a time
-const moviePage = 8;
+const moviePage = 10;
 const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
 
     return (

@@ -16,7 +16,7 @@ export default function MovieDetail() {
     useEffect(() => {
         setLoading(true);
         axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
-            params: { api_key: "37b186e022267bd499bb77313a4cd229" }
+            params: { api_key: import.meta.env.Api_KEY }
         }).then(res => {
             setMovie(res.data);
             setImdbId(res.data.imdb_id);
@@ -24,7 +24,7 @@ export default function MovieDetail() {
         .catch(() => navigate("/"));
 
         axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {
-            params: { api_key: "37b186e022267bd499bb77313a4cd229" }
+            params: { api_key: import.meta.env.Api_KEY }
         }).then(res => {
             const trailer = res.data.results.find(v => v.site === "YouTube" && v.type === "Trailer");
             if (trailer) setVideoKey(trailer.key);

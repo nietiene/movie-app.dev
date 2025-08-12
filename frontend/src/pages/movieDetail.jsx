@@ -29,15 +29,19 @@ export default function MovieDetail() {
     axios.get(
         `https://api.themoviedb.org/3/movie/${id}/external_ids`,
         {
-            params: { api_key: "37b186e022267bd499bb77313a4cd229"}
+            params: { api_key: "37b186e022267bd499bb77313a4cd229"},
         }
     )
+    .then((res) => {
+        setImdbId(res.data.imdb_id);
+    });
 
 }, [id, navigate])
 
 if (!movie) return <div className="p-6 text-center">Loading...</div>
 
 const fullMovieUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
+const imdbUrl = imdbId ? `https://www.imdb.com/title/${imdbId}/`: null;
 
 return (
     <div className="max-w-4xl mx-auto p-6">

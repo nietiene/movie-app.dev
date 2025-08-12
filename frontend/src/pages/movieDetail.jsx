@@ -8,6 +8,7 @@ export default function MovieDetail() {
 
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
+    const [imdbId, setImdbId] = useState(null)
 
     useEffect(() => {
         //fetch movie details

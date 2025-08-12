@@ -35,7 +35,7 @@ export default function MovieDetail() {
 
 if (loading) return (
     <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
     </div>
 )
 
@@ -44,15 +44,18 @@ if (!movie) return <div className="p-6 text-center">Loading...</div>
 const streamingOptions = [
     {
         name: "JustWatch",
-        url: `https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`
+        url: `https://www.justwatch.com/us/search?q=${encodeURIComponent(movie.title)}`,
+        color: "bg-purple-600 hover:bg-purple-700"
     },
     {
         name: "IMDb",
-        url: imdbId ? `https://www.imdb.com/title/${imdbId}/`: null
+        url: imdbId ? `https://www.imdb.com/title/${imdbId}/`: null,
+        color: "bg-yellow-500 hover:bg-yellow-600"
     },
     {
         name: "YouTube",
-        url: `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
+        url: `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`,
+        color: "bg-red-600 hover:bg-red-700"
     }
 ].filter(option => option.url);
 

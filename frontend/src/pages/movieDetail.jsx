@@ -15,6 +15,7 @@ export default function MovieDetail() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true);
         //fetch movie details
         axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
             params: { api_key: "37b186e022267bd499bb77313a4cd229"}
@@ -30,7 +31,13 @@ export default function MovieDetail() {
         const trailer = res.data.results.find(v => v.site === "YouTube" && v.type === "Trailer");
         if (trailer) setVideoKey(trailer.key);
     }) 
-}, [id, navigate])
+}, [id, navigate]);
+
+if (loading) return (
+    <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full"></div>
+    </div>
+)
 
 if (!movie) return <div className="p-6 text-center">Loading...</div>
 

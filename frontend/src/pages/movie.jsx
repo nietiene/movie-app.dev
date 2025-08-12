@@ -45,15 +45,13 @@ const Movie = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800">
-      {/* Fixed Header */}
       <div className="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
-          {/* Mobile layout - logo left, search center, contact right */}
           <div className="flex items-center justify-between md:hidden">
             <img 
               src={logo} 
               alt="MovieHub Logo" 
-              className="h-8 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
+              className="h-24 w-auto object-contain hover:scale-105 transition-transform cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             />
             

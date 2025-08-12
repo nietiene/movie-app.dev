@@ -58,13 +58,16 @@ const pagnatatedMovies = movies.slice(page * moviePage, (page + 1) * moviePage);
               onChange={e => setCategory(e.target.value)}
               className="border rounded px-3 py-2 max-w-xs"
             >
-                {
-                    categories.map(cat => (
+                
+                  <div className="flex gap-4 mb-6 flex-wrap">
+                   {categories.map(cat => (
                         <option key={cat} value={cat}>
                           {cat || "All Categorie"}
                         </option>
                     ))
                 }
+                  </div>
+
             </select>
         </div>
 

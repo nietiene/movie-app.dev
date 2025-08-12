@@ -135,6 +135,15 @@ return (
             <h4 className="font-semibold text-blue-400">Release Date</h4>
             <p>{movie.release_date}</p>
         </div>
+
+        <div>
+            <h4 className="font-semibold text-blue-400">
+                <p>{movie.runtime} minutes</p>
+            </h4>
+        </div>
+        <div>
+            <h4 className="font-semibold text-blue-400">Genres</h4>
+        </div>
     </div>
     </div>
 )

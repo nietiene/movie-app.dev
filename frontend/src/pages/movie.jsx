@@ -48,7 +48,6 @@ const Movie = () => {
       {/* Fixed Header */}
       <div className="sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
-          {/* Mobile layout - logo left, search right */}
           <div className="flex items-center justify-between md:hidden">
             <img 
               src={logo} 

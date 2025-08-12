@@ -143,6 +143,12 @@ return (
         </div>
         <div>
             <h4 className="font-semibold text-blue-400">Genres</h4>
+            <p>{movie.genres?.map(g => g.name).join(",")}</p>
+        </div>
+        <div>
+            <h4 className="font-semibold text-blue-400">
+                <p>{movie.status}</p>
+            </h4>
         </div>
     </div>
     </div>

@@ -8,14 +8,12 @@ export default function MovieDetail() {
 
     const [movie, setMovie] = useState(null);
     const [videoKey, setVideoKey] = useState(null);
-    const [imdbId, setImdbId] = useState(null)
 
     useEffect(() => {
         //fetch movie details
         axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
             params: { api_key: "37b186e022267bd499bb77313a4cd229"}
-        })
-        .then(res => setMovie(res.data))
+        }).then(res => setMovie(res.data))
         .catch(() => navigate("/"))
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {
@@ -23,25 +21,12 @@ export default function MovieDetail() {
     }).then(res => {
         const trailer = res.data.results.find(v => v.site === "YouTube" && v.type === "Trailer");
         if (trailer) setVideoKey(trailer.key);
-    });
-
-    // fetch external IDs(IMDb)
-    axios.get(
-        `https://api.themoviedb.org/3/movie/${id}/external_ids`,
-        {
-            params: { api_key: "37b186e022267bd499bb77313a4cd229"},
-        }
-    )
-    .then((res) => {
-        setImdbId(res.data.imdb_id);
-    });
-
+    }) 
 }, [id, navigate])
 
 if (!movie) return <div className="p-6 text-center">Loading...</div>
 
 const fullMovieUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
-const imdbUrl = imdbId ? `https://www.imdb.com/title/${imdbId}/`: null;
 
 return (
     <div className="max-w-4xl mx-auto p-6">
@@ -67,7 +52,6 @@ return (
             <p>No trailer available.</p>
         )}
 
-    <div className="flex gap-4">
         <a href={fullMovieUrl}
            target="_blank"
            rel="nooper norefreer"
@@ -75,29 +59,6 @@ return (
         >
             ▶ Watch Full Video
         </a>
-     </div>
-
-  {imdbId && (
-    <a href={imdbUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold transition"
->
-         ⭐ IMDb Page
-    </a>
-  )}
-
-  {movie.homepage && (
-    <a
-       href={movie.homepage}
-       target="_blank"
-       rel="noopener noreferrer"
-       className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold transition"
-     >
-            🌐 Official Site
-
-</a>
-  )}
     </div>
 )
 

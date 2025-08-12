@@ -18,7 +18,7 @@ const [page, setPage] = useState(0) // for pagnation
         if (category) params.category = category;
         if (search) params.search = search;
 
-        const res = axios.get("http://localhost:5000/api/movies", { params })
+        const res = await axios.get("http://localhost:5000/api/movies", { params })
             setMovies(res.data.results)
             setPage(0)
     } catch (err) {

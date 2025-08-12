@@ -17,11 +17,11 @@ app.get('/api/movies', async (req, res) => {
         let url, params;
         
         if (search) {
-            url = `https://api.themoviedb.org/3/search/movie`
+            url = `https://api.themoviedb.org/3/search/movie`;
             params = { api_key: TMDB_API_KEY, query: search, language: "en-US", page: 1};
         } else if (category) {
             // genre
-            url = "https://api.themoviedb.org/3/discover/movie",
+            url = "https://api.themoviedb.org/3/discover/movie";
             params = {
                 api_key: TMDB_API_KEY,
                 language: "en-US",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaSearch, FaArrowRight } from "react-icons/fa";
-import logo from "../assets/logo.jpeg"
+import logo from "../assets/logo.png"
 const categories = ["", "Action", "Comedy", "Horror", "Romance", "Drama"];
 
 const Movie = () => {
@@ -50,7 +50,7 @@ const Movie = () => {
         {/* Header with search and filter */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
           <div className="text-3xl font-bold text-white cursor-pointer select-none">
-            Movie<span className="text-purple-400">Hub</span>
+            <img src={logo} alt="my logo" />
           </div>
 
           <div className="relative w-full md:w-1/2">

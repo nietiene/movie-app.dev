@@ -67,6 +67,7 @@ return (
             <p>No trailer available.</p>
         )}
 
+    <div className="flex gap-4">
         <a href={fullMovieUrl}
            target="_blank"
            rel="nooper norefreer"
@@ -74,6 +75,29 @@ return (
         >
             ▶ Watch Full Video
         </a>
+     </div>
+
+  {imdbId && (
+    <a href={imdbUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold transition"
+>
+         ⭐ IMDb Page
+    </a>
+  )}
+
+  {movie.homepage && (
+    <a
+       href={movie.homepage}
+       target="_blank"
+       rel="noopener noreferrer"
+       className="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-semibold transition"
+     >
+            🌐 Official Site
+
+</a>
+  )}
     </div>
 )
 

@@ -16,7 +16,7 @@ export default function MovieDetail() {
             params: { api_key: "37b186e022267bd499bb77313a4cd229"}
         }).then(res => {
             setMovie(res.data);
-            setImdbId(res.data.imdbId);
+            setImdbId(res.data.imdb_id);
     })
         .catch(() => navigate("/"));
 

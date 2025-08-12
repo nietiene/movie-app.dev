@@ -18,7 +18,7 @@ export default function MovieDetail() {
             setMovie(res.data);
             setImdbId(res.data.imdbId);
     })
-        .catch(() => navigate("/"))
+        .catch(() => navigate("/"));
 
     axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {
         params: { api_key: "37b186e022267bd499bb77313a4cd229" }
@@ -30,7 +30,8 @@ export default function MovieDetail() {
 
 if (!movie) return <div className="p-6 text-center">Loading...</div>
 
-const fullMovieUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
+const fullMovieUrl = imdbId
+? `https://www.imdb.com/title/${imdbId}/watch/` :  `https://www.youtube.com/results?search_query=${encodeURIComponent(movie.title + " full movie")}`
 
 return (
     <div className="max-w-4xl mx-auto p-6">

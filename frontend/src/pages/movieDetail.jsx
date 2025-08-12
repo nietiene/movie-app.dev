@@ -130,7 +130,12 @@ return (
         </div>
     </div>
 
-    <div className="mt-8 "></div>
+    <div className="mt-8 grid grid-cols-2 gap-4 text-sm text-gray-300">
+        <div>
+            <h4 className="font-semibold text-blue-400">Release Date</h4>
+            <p>{movie.release_date}</p>
+        </div>
+    </div>
     </div>
 )
 

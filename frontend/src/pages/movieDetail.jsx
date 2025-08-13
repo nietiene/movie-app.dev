@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaArrowLeft, FaPlay, FaImdb, FaYoutube, FaSearch, FaFilm } from "react-icons/fa";
 import { MdLocalMovies } from "react-icons/md";
+console.log("API Key:", import.meta.env.VITE_API_KEY);
 
 export default function MovieDetail() {
     const { id } = useParams();

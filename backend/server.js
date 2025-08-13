@@ -9,10 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors({
     
-    origin: [
-        "https://netmovies-theta.vercel.app/",
-        "http://localhost:5173"
-    ]
+    origin:  "https://netmovies-theta.vercel.app/",
 }))
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;

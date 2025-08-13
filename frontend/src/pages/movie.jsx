@@ -40,7 +40,7 @@ const Movie = () => {
     setSearch(e.target.value);
   };
 
-  const moviesPerPage = 100;
+  const moviesPerPage = 50;
   const paginatedMovies = movies.slice(page * moviesPerPage, (page + 1) * moviesPerPage);
   const totalPages = Math.ceil(movies.length / moviesPerPage);
 

@@ -1,15 +1,15 @@
 import express from "express";
 import axios from "axios";
 import cors from "cors";
-import dotenv from "dotenv"
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors())
 
-const TMDB_API_KEY = "37b186e022267bd499bb77313a4cd229";
+const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
 // Fetch all popular movies from TMDB and forward to frontend
 

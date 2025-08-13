@@ -22,7 +22,8 @@ const Movie = () => {
         if (category) params.category = category;
         if (search) params.search = search;
 
-        const res = await axios.get("http://localhost:5000/api/movies", { params });
+        const BACKEND_URL= import.meta.env.VITE_BACKEND_URL;
+        const res = await axios.get(`${VITE_BACKEND_URL}/api/movies`, { params });
         setMovies(res.data.results || []);
         setPage(0);
       } catch (err) {

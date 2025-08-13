@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin:  process.env.FRONTEND_API,
+    origin:  "https://netmovies-theta.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))

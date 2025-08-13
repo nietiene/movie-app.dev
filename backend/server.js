@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: "https://my-frontend-url.vercel.app"
+    origin: "http://localhost:5173"
 }))
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;

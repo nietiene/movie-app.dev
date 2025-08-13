@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin:  process.env.FRONTEND_API
+    origin:  process.env.FRONTEND_API,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }))
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
